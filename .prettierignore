@@ -1,0 +1,8 @@
+.storybook/
+public/
+node_modules/
+
+yarn.lock
+package-lock.json
+next.config.js
+postcss.config.js
