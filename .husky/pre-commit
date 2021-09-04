@@ -46,3 +46,4 @@ yarn build ||
 # If everything passes... Now we can commit
 echo '🚀 🚀 🚀'
 echo 'Committing...'
+undefined
