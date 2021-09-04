@@ -1,6 +1,7 @@
 .storybook/
 public/
 node_modules/
+storybook-static/
 
 yarn.lock
 package-lock.json
