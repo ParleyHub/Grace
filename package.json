@@ -1,77 +1,42 @@
 {
   "name": "grace",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+  "version": "0.0.1",
+  "description": "Design System",
+  "repository": "git@github.com:ParleyHub/Grace.git",
+  "author": "Hiep Nguyen <hiepnh610@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.1.2"
+    "typescript": "^4.4.2"
   },
   "scripts": {
-    "start": "start-storybook -p 6006 -s public",
-    "build": "build-storybook -s public",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "check-types": "tsc --pretty --noEmit",
-    "check-format": "prettier --check .",
-    "check-lint": "eslint . --ext ts --ext tsx",
-    "format": "prettier --write .",
-    "test-all": "yarn check-format && yarn check-lint && yarn check-types",
-    "prepare": "husky install"
+    "clean": "rm -rf ./lib/",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build": "yarn clean && yarn build:esm && yarn build:cjs",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.3.7",
-    "@storybook/addon-essentials": "^6.3.7",
-    "@storybook/addon-links": "^6.3.7",
-    "@storybook/node-logger": "^6.3.7",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.7",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "autoprefixer": "^9",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "husky": "^7.0.2",
-    "node-sass": "^6.0.1",
-    "postcss": "^7",
-    "prettier": "^2.3.2",
-    "stylelint-config-prettier": "^8.0.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "tslint-config-prettier": "^1.18.0"
+  "files": [
+    "/lib"
+  ],
+  "resolutions": {
+    "babel-loader": "8.1.0",
+    "webpack": "4.44.2"
   }
 }
