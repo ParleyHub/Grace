@@ -1,9 +1,9 @@
 import './App.css';
 
-import SayHello from 'grace';
+import { Button } from 'grace';
 
 const App = () => {
-  return <SayHello name="Hiep" />;
+  return <Button label="Test" />;
 };
 
 export default App;
