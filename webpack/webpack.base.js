@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'lib'),
+    path: path.resolve(__dirname, '../lib'),
     libraryTarget: 'umd',
     library: 'grace',
     umdNamedDefine: true,
