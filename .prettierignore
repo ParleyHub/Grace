@@ -3,9 +3,11 @@
 example/
 node_modules/
 lib/
+webpack/
 
 next-env.d.ts
 yarn.lock
 package-lock.json
 next.config.js
 postcss.config.js
+webpack.config.js

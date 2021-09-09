@@ -14,7 +14,9 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "autoprefixer": "^9",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.2",
     "postcss": "^7",
@@ -35,7 +37,8 @@
     "clean": "rimraf lib",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build": "yarn clean && webpack",
+    "build": "yarn clean && NODE_ENV=development webpack --env development",
+    "build-prod": "yarn clean && NODE_ENV=production webpack --env production",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx",
@@ -56,5 +59,21 @@
   "resolutions": {
     "babel-loader": "8.1.0",
     "webpack": "4.44.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }
