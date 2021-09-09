@@ -1,41 +1,11 @@
-const path = require('path');
+const { merge } = require('webpack-merge');
 
-module.exports = {
-  entry: './src/index.tsx',
-  mode: 'development',
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          'postcss-loader',
-        ],
-      },
+const baseConfig = require('./webpack/webpack.base');
 
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
-  },
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'lib'),
-    libraryTarget: 'umd',
-    library: 'grace',
-    umdNamedDefine: true,
-  },
+module.exports = (props) => {
+  const { production } = props;
+  const env = production ? 'production' : 'development';
+  const config = require('./webpack/webpack.' + env);
+
+  return merge(baseConfig, config);
 };

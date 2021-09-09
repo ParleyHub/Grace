@@ -1,4 +1,4 @@
 import './styles.scss';
 
-export type { ButtonProps } from './stories/Button';
-export { default as Button } from './stories/Button';
+export type { IButtonProps } from './components/Button';
+export { Button } from './components/Button';

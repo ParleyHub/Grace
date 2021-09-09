@@ -35,7 +35,7 @@ yarn check-types ||
 echo '🏗️ 🏗 🏗'
 echo 'Building...'
 
-yarn build ||
+yarn build-prod ||
 (
   echo '🧨 🧨 🧨'
   echo 'Build failed.'
