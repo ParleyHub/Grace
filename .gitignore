@@ -88,3 +88,5 @@ lib/
 /example/build
 
 storybook-static/
+
+.DS_Store
