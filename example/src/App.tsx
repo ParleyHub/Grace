@@ -1,9 +1,5 @@
-import './App.css';
-
 import { Button } from 'grace';
 
-const App = () => {
-  return <Button label="Test" />;
-};
+const App = () => <Button label="Test" primary={true} />;
 
 export default App;
