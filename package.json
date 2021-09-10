@@ -1,6 +1,6 @@
 {
-  "name": "grace",
-  "version": "0.0.1",
+  "name": "@parley-hub/grace",
+  "version": "0.0.2",
   "description": "Design System",
   "repository": "git@github.com:ParleyHub/Grace.git",
   "author": "Hiep Nguyen <hiepnh610@gmail.com>",
