@@ -46,6 +46,6 @@ jobs:
           export_default_credentials: true
 
       - run: |
+          echo ${{ secrets.NPM_REGISTRY }}
           echo ${{ secrets.NPM_REGISTRY }} >> .npmrc
-          cat .npmrc
           npx google-artifactregistry-auth .npmrc
