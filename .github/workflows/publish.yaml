@@ -47,4 +47,5 @@ jobs:
 
       - run: |
           echo ${{ secrets.NPM_REGISTRY }} >> .npmrc
+          ls
           npx google-artifactregistry-auth .npmrc
