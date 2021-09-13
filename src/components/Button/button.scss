@@ -2,7 +2,7 @@
   @apply transition duration-300 ease-in-out outline-none rounded cursor-pointer inline-block font-roboto leading-4 border border-solid;
 
   &--default {
-    @apply bg-gray-100 text-gray-900 border-gray-100;
+    @apply bg-gray-100 border-gray-100 text-gray-900;
 
     &:hover {
       @apply bg-gray-200 border-gray-200;
@@ -14,7 +14,7 @@
   }
 
   &--info {
-    @apply bg-blue-600 text-white border-blue-600;
+    @apply bg-blue-600 border-blue-600 text-white;
 
     &:hover {
       @apply bg-blue-700 border-blue-700;
@@ -26,7 +26,7 @@
   }
 
   &--warning {
-    @apply bg-orange-600 text-white border-orange-600;
+    @apply bg-orange-600 border-orange-600 text-white;
 
     &:hover {
       @apply bg-orange-700 border-orange-700;
@@ -38,7 +38,7 @@
   }
 
   &--error {
-    @apply bg-red-600 text-white border-red-600;
+    @apply bg-red-600 border-red-600 text-white;
 
     &:hover {
       @apply bg-red-700 border-red-700;
@@ -50,7 +50,7 @@
   }
 
   &--success {
-    @apply bg-green-600 text-white border-green-600;
+    @apply bg-green-600 border-green-600 text-white;
 
     &:hover {
       @apply bg-green-700 border-green-700;

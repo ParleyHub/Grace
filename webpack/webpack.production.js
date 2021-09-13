@@ -1,16 +1,34 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 module.exports = {
   mode: 'production',
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
-        test: /\.(scss)$/,
+        test: /\.s?css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
           'postcss-loader',
+          'sass-loader',
         ],
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
+      }),
     ],
   },
 };
