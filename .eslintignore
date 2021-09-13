@@ -4,6 +4,7 @@ example/
 node_modules/
 lib/
 webpack/
+storybook-static/
 
 next-env.d.ts
 yarn.lock

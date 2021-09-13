@@ -50,10 +50,6 @@ web_modules/
 
 .yarn-integrity
 
-.env
-.env.test
-.env.production
-
 .cache
 .parcel-cache
 

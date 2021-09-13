@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $NAME_CI
+  namespace: default
+  labels:
+    name: $NAME_CI
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: $NAME_CI
+  template:
+    metadata:
+      labels:
+        name: $NAME_CI
+    spec:
+      containers:
+        - name: $NAME_CI
+          image: $IMAGE_TAG
+          ports:
+            - containerPort: 6006
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: '0.2'
+            requests:
+              memory: 128Mi
+              cpu: '0.1'
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: $NAME_CI
+  name: $NAME_CI
+spec:
+  type: ClusterIP
+  selector:
+    name: $NAME_CI
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 6006
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: $NAME_CI
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.allow-http: 'false'
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: default
+spec:
+  tls:
+    - hosts:
+        - $DOMAIN
+      secretName: grace-tls-secret
+  rules:
+    - host: $DOMAIN
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: $NAME_CI
+                port:
+                  number: 80
