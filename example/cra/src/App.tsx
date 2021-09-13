@@ -1,5 +1,5 @@
 import { Button } from '@parley-hub/grace';
 
-const App = () => <Button label="Test" type="success" />;
+const App = () => <Button label="Test" variant="success" />;
 
 export default App;
