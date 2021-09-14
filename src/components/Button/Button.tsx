@@ -8,6 +8,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   outline?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ const Button = ({
   outline = false,
   backgroundColor,
   label,
+  fullWidth,
   ...props
 }: IButtonProps): ReactElement => {
   return (
@@ -25,6 +27,7 @@ const Button = ({
       className={[
         'grace-button',
         `grace-button--${size}`,
+        `${fullWidth ? `grace-button--full` : null}`,
         `${
           outline
             ? `grace-button-outline grace-button-outline--${variant}`

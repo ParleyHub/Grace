@@ -18,20 +18,20 @@ Default.args = {
   label: 'Button',
 };
 
-export const DefaultDisabled = Template.bind({});
-DefaultDisabled.args = {
+export const Disabled = Template.bind({});
+Disabled.args = {
   label: 'Button',
   disabled: true,
 };
 
-export const DefaultOutline = Template.bind({});
-DefaultOutline.args = {
+export const Outline = Template.bind({});
+Outline.args = {
   label: 'Button',
   outline: true,
 };
 
-export const DefaultOutlineDisabled = Template.bind({});
-DefaultOutlineDisabled.args = {
+export const OutlineDisabled = Template.bind({});
+OutlineDisabled.args = {
   label: 'Button',
   outline: true,
   disabled: true,
@@ -43,38 +43,10 @@ Info.args = {
   label: 'Button',
 };
 
-export const InfoDisabled = Template.bind({});
-InfoDisabled.args = {
-  variant: 'info',
-  label: 'Button',
-  disabled: true,
-};
-
-export const InfoOutline = Template.bind({});
-InfoOutline.args = {
-  variant: 'info',
-  label: 'Button',
-  outline: true,
-};
-
 export const Success = Template.bind({});
 Success.args = {
   variant: 'success',
   label: 'Button',
-};
-
-export const SuccessDisabled = Template.bind({});
-SuccessDisabled.args = {
-  variant: 'success',
-  label: 'Button',
-  disabled: true,
-};
-
-export const SuccessOutline = Template.bind({});
-SuccessOutline.args = {
-  variant: 'success',
-  label: 'Button',
-  outline: true,
 };
 
 export const Warning = Template.bind({});
@@ -83,38 +55,10 @@ Warning.args = {
   label: 'Button',
 };
 
-export const WarningDisabled = Template.bind({});
-WarningDisabled.args = {
-  variant: 'warning',
-  label: 'Button',
-  disabled: true,
-};
-
-export const WarningOutline = Template.bind({});
-WarningOutline.args = {
-  variant: 'warning',
-  label: 'Button',
-  outline: true,
-};
-
 export const Error = Template.bind({});
 Error.args = {
   variant: 'error',
   label: 'Button',
-};
-
-export const ErrorDisabled = Template.bind({});
-ErrorDisabled.args = {
-  variant: 'error',
-  label: 'Button',
-  disabled: true,
-};
-
-export const ErrorOutline = Template.bind({});
-ErrorOutline.args = {
-  variant: 'error',
-  label: 'Button',
-  outline: true,
 };
 
 export const Large = Template.bind({});
@@ -133,4 +77,11 @@ export const Small = Template.bind({});
 Small.args = {
   size: 'small',
   label: 'Button',
+};
+
+export const fullWidth = Template.bind({});
+fullWidth.args = {
+  size: 'small',
+  label: 'Button',
+  fullWidth: true,
 };
