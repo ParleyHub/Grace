@@ -76,5 +76,5 @@ jobs:
 
       - name: Deploy
         run: |
-          cd build-storybook
+          cd storybook-static
           gsutil cp -J * ${{ secrets.GCS_BUCKET }}
