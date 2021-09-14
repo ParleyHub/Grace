@@ -137,6 +137,10 @@
     @apply text-base py-2.5 px-6;
   }
 
+  &--full {
+    @apply w-full text-center;
+  }
+
   &:disabled {
     @apply pointer-events-none cursor-default opacity-80;
   }
