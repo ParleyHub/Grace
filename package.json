@@ -41,7 +41,7 @@
     "webpack-cli": "^4.8.0"
   },
   "scripts": {
-    "clean": "rimraf lib storybook-static",
+    "clean": "rm -rf lib storybook-static",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "NODE_ENV=development webpack --env development",
