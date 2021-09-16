@@ -32,7 +32,7 @@ Large.args = {
   inputSize: 'large',
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  label: 'Username',
+export const WithButton = Template.bind({});
+WithButton.args = {
+  buttonLabel: 'Search',
 };
