@@ -1,3 +1,32 @@
 .grace-input {
-  @apply border border-solid border-gray-400 h-8 rounded-md w-full;
+  @apply border border-solid border-gray-400 rounded-md transition duration-300 ease-in-out outline-none px-4;
+
+  &:hover,
+  &:focus {
+    @apply border-blue-700;
+  }
+
+  &:focus {
+    @apply shadow-sm;
+  }
+
+  &--small {
+    @apply h-8;
+  }
+
+  &--medium {
+    @apply h-9;
+  }
+
+  &--large {
+    @apply h-10;
+  }
+
+  &--full {
+    @apply w-full;
+  }
+}
+
+.grace-label {
+  @apply text-gray-600 mb-2 inline-block;
 }
