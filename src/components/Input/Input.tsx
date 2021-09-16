@@ -7,7 +7,7 @@ import './input.scss';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'small' | 'medium' | 'large';
-  label: string;
+  buttonLabel?: string | ReactElement;
   disabled?: boolean;
   fullWidth?: boolean;
   type: HTMLInputTypeAttribute;
@@ -16,19 +16,13 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({
   inputSize = 'medium',
-  label,
-  fullWidth,
   type = 'text',
+  buttonLabel,
+  fullWidth,
   ...props
 }: IInputProps): ReactElement => {
   return (
-    <>
-      {!!label && (
-        <label htmlFor="" className="grace-label">
-          {label}
-        </label>
-      )}
-
+    <div className={`${!!buttonLabel ? 'grace-input-group' : null}`}>
       <input
         type={type}
         className={[
@@ -38,7 +32,15 @@ const Input = ({
         ].join(' ')}
         {...props}
       />
-    </>
+
+      {!!buttonLabel && (
+        <button
+          className={`grace-button grace-button--info grace-button--${inputSize}`}
+        >
+          {buttonLabel}
+        </button>
+      )}
+    </div>
   );
 };
 
