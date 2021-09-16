@@ -14,7 +14,7 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onChange?: () => void;
 }
 
-const Button = ({
+const Input = ({
   inputSize = 'medium',
   label,
   fullWidth,
@@ -23,7 +23,11 @@ const Button = ({
 }: IInputProps): ReactElement => {
   return (
     <>
-      {!!label && <label htmlFor="">{label}</label>}
+      {!!label && (
+        <label htmlFor="" className="grace-label">
+          {label}
+        </label>
+      )}
 
       <input
         type={type}
@@ -38,4 +42,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default Input;

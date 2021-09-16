@@ -6,14 +6,33 @@ import { default as Input } from './Input';
 export default {
   title: 'Components/Input',
   component: Input,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  label: 'Input',
+
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  placeholder: 'Username',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  inputSize: 'small',
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  inputSize: 'medium',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  inputSize: 'large',
+};
+
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+  label: 'Username',
 };
