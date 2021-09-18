@@ -3,42 +3,39 @@ import React, {
   InputHTMLAttributes,
   HTMLInputTypeAttribute,
 } from 'react';
+
+import { Button } from '../Button';
+
 import './input.scss';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'small' | 'medium' | 'large';
   buttonLabel?: string | ReactElement;
-  disabled?: boolean;
   fullWidth?: boolean;
-  type: HTMLInputTypeAttribute;
-  onChange?: () => void;
+  type?: HTMLInputTypeAttribute | undefined;
 }
 
 const Input = ({
   inputSize = 'medium',
-  type = 'text',
   buttonLabel,
   fullWidth,
+  type = 'text',
   ...props
 }: IInputProps): ReactElement => {
   return (
-    <div className={`${!!buttonLabel ? 'grace-input-group' : null}`}>
+    <div className={`${!!buttonLabel ? 'grace-input-group' : ''}`}>
       <input
-        type={type}
         className={[
           'grace-input',
           `grace-input--${inputSize}`,
-          `${fullWidth ? `grace-input--full` : null}`,
+          `${fullWidth ? `grace-input--full` : ''}`,
         ].join(' ')}
+        type={type}
         {...props}
       />
 
       {!!buttonLabel && (
-        <button
-          className={`grace-button grace-button--info grace-button--${inputSize}`}
-        >
-          {buttonLabel}
-        </button>
+        <Button size={inputSize} variant="info" label={buttonLabel} />
       )}
     </div>
   );

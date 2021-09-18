@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import { Button } from '@parley-hub/grace';
+import { Button, Input } from '@parley-hub/grace';
 
 import styles from '../styles/Home.module.css'
 
@@ -15,10 +14,16 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Button label="Test" variant="info" />
+        <Button label="Test" variant="info" onClick={() => alert('Test')} />
+
+        <Input type="text" placeholder="Username" />
+
+        <Input type="password" placeholder="1234567890" />
+
+        <Input type="text" placeholder="Search" buttonLabel="Search" />
       </main>
     </div>
   )
-}
+};
 
-export default Home
+export default Home;
