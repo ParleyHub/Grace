@@ -14,11 +14,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Button label="Test" variant="info" onClick={() => alert('Test')} />
+        <Button label="Test" variant="info" onClick={() => alert('Test')} className="mb-4" />
 
-        <Input type="text" placeholder="Username" />
+        <Input type="text" placeholder="Username" className="mb-4" />
 
-        <Input type="password" placeholder="1234567890" />
+        <Input type="password" placeholder="1234567890" className="mb-4" />
 
         <Input type="text" placeholder="Search" buttonLabel="Search" />
       </main>

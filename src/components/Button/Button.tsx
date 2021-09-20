@@ -4,7 +4,6 @@ import './button.scss';
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'info' | 'success' | 'error' | 'warning' | 'default';
   size?: 'small' | 'medium' | 'large';
-  backgroundColor?: string;
   label: string | ReactElement;
   outline?: boolean;
   disabled?: boolean;
@@ -16,10 +15,9 @@ const Button = ({
   variant = 'default',
   size = 'medium',
   outline = false,
-  backgroundColor,
-  label,
-  fullWidth,
   className = '',
+  label = '',
+  fullWidth,
   ...props
 }: IButtonProps): ReactElement => {
   return (
@@ -36,7 +34,6 @@ const Button = ({
             : `grace-button--${variant}`
         }`,
       ].join(' ')}
-      style={{ backgroundColor }}
       {...props}
     >
       {label}

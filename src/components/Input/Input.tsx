@@ -16,16 +16,18 @@ export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({
+  type = 'text',
   inputSize = 'medium',
+  className = '',
   buttonLabel,
   fullWidth,
-  type = 'text',
   ...props
 }: IInputProps): ReactElement => {
   return (
     <div className={`${!!buttonLabel ? 'grace-input-group' : ''}`}>
       <input
         className={[
+          className,
           'grace-input',
           `grace-input--${inputSize}`,
           `${fullWidth ? `grace-input--full` : ''}`,
