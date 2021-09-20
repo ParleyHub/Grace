@@ -36,3 +36,8 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   buttonLabel: 'Search',
 };
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  fullWidth: true,
+};
