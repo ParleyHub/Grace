@@ -24,22 +24,35 @@ const Input = ({
   ...props
 }: IInputProps): ReactElement => {
   return (
-    <div className={`${!!buttonLabel ? 'grace-input-group' : ''}`}>
-      <input
-        className={[
-          className,
-          'grace-input',
-          `grace-input--${inputSize}`,
-          `${fullWidth ? `grace-input--full` : ''}`,
-        ].join(' ')}
-        type={type}
-        {...props}
-      />
+    <>
+      {!!buttonLabel ? (
+        <div className="grace-input-group">
+          <input
+            className={[
+              className ? '' : '',
+              'grace-input',
+              `grace-input--${inputSize}`,
+              `${fullWidth ? `grace-input--full` : ''}`,
+            ].join(' ')}
+            type={type}
+            {...props}
+          />
 
-      {!!buttonLabel && (
-        <Button size={inputSize} variant="info" label={buttonLabel} />
+          <Button size={inputSize} variant="info" label={buttonLabel} />
+        </div>
+      ) : (
+        <input
+          className={[
+            className ? '' : '',
+            'grace-input',
+            `grace-input--${inputSize}`,
+            `${fullWidth ? `grace-input--full` : ''}`,
+          ].join(' ')}
+          type={type}
+          {...props}
+        />
       )}
-    </div>
+    </>
   );
 };
 
