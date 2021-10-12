@@ -24,7 +24,8 @@ const Button = ({
     <button
       type="button"
       className={[
-        className,
+        className ? '' : '',
+        ,
         'grace-button',
         `grace-button--${size}`,
         `${fullWidth ? `grace-button--full` : ''}`,
