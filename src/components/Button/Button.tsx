@@ -2,7 +2,7 @@ import React, { ReactElement, ButtonHTMLAttributes } from 'react';
 import './button.scss';
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'info' | 'success' | 'error' | 'warning' | 'default';
+  variant?: 'info' | 'success' | 'error' | 'warning' | 'gray';
   size?: 'small' | 'medium' | 'large';
   label: string | ReactElement;
   outline?: boolean;
@@ -12,7 +12,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({
-  variant = 'default',
+  variant = 'info',
   size = 'medium',
   outline = false,
   className = '',
