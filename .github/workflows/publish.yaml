@@ -26,55 +26,51 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: NPM Authentication
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_ACCESS_TOKEN }}
+
       - name: Build
         run: |
           yarn clean
           yarn install --frozen-lockfile
           yarn build-prod
 
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          project_id: ${{ secrets.GKE_PROJECT }}
-          service_account_key: ${{ secrets.GKE_SA_KEY }}
-          export_default_credentials: true
-
       - name: Publish
         run: |
-          echo ${{ secrets.NPM_REGISTRY }} >> .npmrc
-          npx google-artifactregistry-auth .npmrc
-          npm publish
+          npm publish --access public
 
-  deploy:
-    needs: npm
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+  # deploy:
+  #   needs: npm
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #     packages: write
 
-    steps:
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
+  #   steps:
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16
 
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v2
 
-      - name: Build Storybook
-        run: |
-          yarn clean
-          yarn install --frozen-lockfile
-          yarn build-storybook
+  #     - name: Build Storybook
+  #       run: |
+  #         yarn clean
+  #         yarn install --frozen-lockfile
+  #         yarn build-storybook
 
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          project_id: ${{ secrets.GKE_PROJECT }}
-          service_account_key: ${{ secrets.GKE_SA_KEY }}
-          export_default_credentials: true
+  #     - name: Set up Cloud SDK
+  #       uses: google-github-actions/setup-gcloud@master
+  #       with:
+  #         project_id: ${{ secrets.GKE_PROJECT }}
+  #         service_account_key: ${{ secrets.GKE_SA_KEY }}
+  #         export_default_credentials: true
 
-      - name: Deploy
-        run: |
-          cd storybook-static
-          gsutil cp -J * ${{ secrets.GCS_BUCKET }}
+  #     - name: Deploy
+  #       run: |
+  #         cd storybook-static
+  #         gsutil cp -J * ${{ secrets.GCS_BUCKET }}
